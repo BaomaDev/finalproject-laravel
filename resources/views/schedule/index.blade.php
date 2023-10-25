@@ -1,7 +1,7 @@
 @extends('layout.master')
 @section('content')
-<h1>All The Tours</h1>
-<a href="/tour/create">Create a Tours</a>
+<h1>All The Schedule</h1>
+<a href="/schedule/create">Create a Schedule</a>
 <!-- will be used to show any messages -->
 @if (Session::has('message'))
     <div class="alert alert-info">{{ Session::get('message') }}</div>
@@ -11,27 +11,19 @@
     <thead>
         <tr>
             <td>ID</td>
-            <td>Name</td>
-            <td>Description</td>
-            <td>Price</td>
-            <td>Duration</td>
-            <td>Date</td>
-            <td>Area</td>
-            <td>Flight</td>
+            <td>Tanggal Keberangkatan</td>
+            <td>Tanggal Kepulangan</td>
+            <td>Tour</td>
         </tr>
     </thead>
     <tbody>
-    @foreach($tours as $key => $value)
+    @foreach($schedules as $key => $value)
         <tr>
             <td>{{ $value->id }}</td>
-            <td>{{ $value->name }}</td>
-            <td>{{ $value->description }}</td>
-            <td>{{ $value->price }}</td>
-            <td>{{ $value->duration }}</td>
-            {{-- <td>{{ $value->date }}</td> --}}
-            <td><a href="/schedule/{{$value->id}}">View Schedule</a></td>    
-            <td>{{ $value->area }}</td>
-            <td>{{ $value->flight->airline ?? '' }}</td>
+            <td>{{ $value->tanggalBerangkat }}</td>
+            <td>{{ $value->tanggalPulang }}</td>
+            <td>{{ $value->tour->name }}</td>
+            
             <!-- we will also add show, edit, and delete buttons -->
             <td>
 
@@ -39,10 +31,10 @@
                 <!-- we will add this later since its a little more complicated than the other two buttons -->
 
                 <!-- show the shark (uses the show method found at GET /sharks/{id} -->
-                <a class="btn btn-small btn-success" href="/tour/{{$value->id}}">Show this tour</a>
+                <a class="btn btn-small btn-success" href="/schedule/{{$value->id}}">Show this schedule</a>
 
                 <!-- edit this shark (uses the edit method found at GET /sharks/{id}/edit -->
-                <a class="btn btn-small btn-info" href="/tour/{{$value->id}}/edit">Edit this tour</a>
+                <a class="btn btn-small btn-info" href="/schedule/{{$value->id}}/edit">Edit this schedule</a>
                 <form action="/tour/{{$value->id}}" method="POST">
                     @csrf
                     @method('DELETE')

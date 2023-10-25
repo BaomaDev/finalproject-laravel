@@ -41,7 +41,7 @@
     </div>
     <div class="mb-3">
         <label for="date">Date:</label>
-        <input type="date" id="date" name="date">
+        <input type="date" id="date" name="date" value="{{$tour->date}}">
         @error('date')
             <div class="alert alert-danger">
                 {{$message}}
@@ -58,33 +58,19 @@
           <option value="USA">USA</option>
         </select>
     </div>
-    {{-- <div class="mb-3">
-        <label for="area">Area</label>
-        <input type="text" class="form-control" name="area" id="area" placeholder="area" value="{{$tour->area}}">
-        @error('area')
-            <div class="alert alert-danger">
-                {{$message}}
-            </div>
-        @enderror
-    </div> --}}
+
     <div class="form-group">
         <label for="exampleFormControlSelect1">Flights</label>
-        <select class="form-control" id="flight_id" name="flight_id">
-            @foreach ($flights as $key => $value )
-            <option value="{{$value->id}} ">{{$value->airline}} </option>
+        <select name="flight_id" id="flight_id">
+            @foreach ($flights as $key => $value)
+                <option value="{{ $value->id }}"
+                    @if ($value->id == $tour->flight_id)
+                        selected="selected"
+                    @endif
+                >{{ $value->airline }}</option>
             @endforeach
-        </select>
+            </select>
     </div>
-
-    {{-- <div class="mb-3">
-        <label for="flight">Flight</label>
-        <input type="text" class="form-control" name="flight" id="flight" placeholder="flight" value="{{$tour->flight_id}}">
-        @error('area')
-            <div class="alert alert-danger">
-                {{$message}}
-            </div>
-        @enderror
-    </div> --}}
     
     <div class="col-auto">
         <button type="submit" class="btn btn-primary mb-3">Save</button>

@@ -1,10 +1,23 @@
-<nav class="navbar navbar-inverse">
-    <div class="navbar-header">
-        <a class="navbar-brand" href="/">TRAVEL AGENT</a>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/">Travel</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/customer">Customer</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/flight">Flight</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/tour">Tour</a>
+        </li>   
+        <li class="nav-item">
+          <a class="nav-link" href="/schedule/create">Schedule</a>
+      </li>    
+      </ul>
     </div>
-    <ul class="nav navbar-nav">
-        <li><a href="/customer">Customer</a></li>
-        <li><a href="/flight">Flight</a>
-        <li><a href="/tour">Tour</a>
-    </ul>
-</nav>
+  </nav>

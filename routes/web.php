@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\FlightController;
+use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\TourController;
 use Illuminate\Support\Facades\Route;
 
@@ -23,3 +24,4 @@ Route::get('/', function () {
 Route::resource('customer', CustomerController::class);
 Route::resource('flight', FlightController::class);
 Route::resource('tour', TourController::class);
+Route::resource('schedule', ScheduleController::class);
