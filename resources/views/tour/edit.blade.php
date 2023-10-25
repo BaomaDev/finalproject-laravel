@@ -12,9 +12,9 @@
             </div>
         @enderror
     </div>
-    <div class="mb-3">
-        <label for="description">Description</label>
-        <input type="text" class="form-control" name="description" id="description" placeholder="description" value="{{$tour->description}}">
+    <div class="form-group">
+        <label for="exampleFormControlTextarea1">Description</label>
+        <textarea class="form-control" id="description" name="description" placeholder="Tour Description" rows="10" >{{$tour->description}} </textarea>
         @error('description')
             <div class="alert alert-danger">
                 {{$message}}
@@ -48,7 +48,17 @@
             </div>
         @enderror
     </div>
-    <div class="mb-3">
+    <div class="form-group">
+        <label for="exampleFormControlSelect1">Area</label>
+        <select class="form-control" id="area" name="area">
+          <option value="Australia & New Zealand">Australia  & New Zealand</option>
+          <option value="Asia">Asia</option>
+          <option value="Chinese Mainland">Chinese Mainland</option>
+          <option value="Europe">Europe</option>
+          <option value="USA">USA</option>
+        </select>
+    </div>
+    {{-- <div class="mb-3">
         <label for="area">Area</label>
         <input type="text" class="form-control" name="area" id="area" placeholder="area" value="{{$tour->area}}">
         @error('area')
@@ -56,8 +66,17 @@
                 {{$message}}
             </div>
         @enderror
+    </div> --}}
+    <div class="form-group">
+        <label for="exampleFormControlSelect1">Flights</label>
+        <select class="form-control" id="flight_id" name="flight_id">
+            @foreach ($flights as $key => $value )
+            <option value="{{$value->id}} ">{{$value->airline}} </option>
+            @endforeach
+        </select>
     </div>
-    <div class="mb-3">
+
+    {{-- <div class="mb-3">
         <label for="flight">Flight</label>
         <input type="text" class="form-control" name="flight" id="flight" placeholder="flight" value="{{$tour->flight_id}}">
         @error('area')
@@ -65,7 +84,7 @@
                 {{$message}}
             </div>
         @enderror
-    </div>
+    </div> --}}
     
     <div class="col-auto">
         <button type="submit" class="btn btn-primary mb-3">Save</button>

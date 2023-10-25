@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Tour;
+use App\Models\Flight;
 use Illuminate\Http\Request;
 
 class TourController extends Controller
@@ -25,7 +26,8 @@ class TourController extends Controller
      */
     public function create()
     {
-        return view('tour.create');
+        $flights = Flight::all();
+        return view('tour.create', compact('flights'));
     }
 
     /**
@@ -56,7 +58,7 @@ class TourController extends Controller
             "duration" => $request["duration"],
             "date" => $request["date"],
             "area" => $request["area"],
-            "flight_id" => $request["flight"],
+            "flight_id" => $request["flight_id"],
         ]);
         
         return redirect('/tour');
@@ -71,7 +73,9 @@ class TourController extends Controller
     public function show($id)
     {
         $tour = Tour::where('id', $id)->first();
+        
         return view('tour.show', compact('tour'));
+        
     }
 
     /**
@@ -83,7 +87,8 @@ class TourController extends Controller
     public function edit($id)
     {
         $tour = Tour::where('id', $id)->first();
-        return view('tour.edit', compact('tour'));
+        $flights = Flight::all();
+        return view('tour.edit', compact('tour', 'flights'));
     }
 
     /**
@@ -102,6 +107,7 @@ class TourController extends Controller
             'duration' => 'required',
             'date' => 'required',
             'area' => 'required',
+            
         ]);
 
         $tour = Tour::find($id);
@@ -111,6 +117,7 @@ class TourController extends Controller
         $tour->duration = $request->duration;
         $tour->date = $request->date;
         $tour->area = $request->area;
+        $tour->flight_id = $request->flight_id;
         $tour->save();
         
         return redirect('/tour');
