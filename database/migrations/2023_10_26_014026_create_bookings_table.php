@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('payment');
             $table->foreignId('customer_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('schedule_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
-            $table->foreignId('flights_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            
             $table->timestamps();
         });
     }

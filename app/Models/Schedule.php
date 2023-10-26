@@ -18,4 +18,9 @@ class Schedule extends Model
     {
         return $this->belongsTo(Tour::class);
     }
+    public function booking():BelongsTo
+    {
+        return $this->belongsTo(Booking::class);
+    }
+
 }

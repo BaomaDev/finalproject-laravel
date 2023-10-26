@@ -1,7 +1,7 @@
 @extends('layout.master')
 
 @section('title')
-    <h1>2 Tour</h1>
+    <h1>Create Booking</h1>
 @endsection
 
 @section('breadcrumb')
@@ -32,14 +32,7 @@
                 @endforeach
             </select> --}}
         </div>
-        <div class="form-group">
-            <label for="exampleFormControlSelect1">Flights</label>
-            <select class="form-control" id="flight_id" name="flight_id">
-                @foreach ($flights as $key => $value )
-                <option value="{{$value->id}} ">{{$value->airline}} </option>
-                @endforeach
-            </select>
-        </div>
+        
         <div class="form-group">
             <label for="exampleFormControlSelect1">Departure Date</label>
             <select class="form-control" id="schedule_id" name="schedule_id">

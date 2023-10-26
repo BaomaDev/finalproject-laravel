@@ -28,7 +28,10 @@ Route::resource('flight', FlightController::class);
 Route::resource('tour', TourController::class);
 Route::resource('schedule', ScheduleController::class);
 Route::resource('book', BookingController::class);
-Route::get('/book/manage', [BookingController::class, 'manage']);
-
+//Route::get('/book/manage', [BookingController::class, 'manage']);
+Route::get('/book/manage', function(){
+    
+    //return view('customer.create');
+});
 Auth::routes();
 

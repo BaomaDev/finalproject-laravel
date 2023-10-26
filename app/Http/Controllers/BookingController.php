@@ -20,7 +20,8 @@ class BookingController extends Controller
      */
     public function index()
     {
-    //
+        $bookings = Booking::all();
+        return view('book.index', compact('bookings'));
     }
 
     /**
@@ -31,9 +32,6 @@ class BookingController extends Controller
     public function create($id)
     {
 
-        // $customers = Customer::all();
-        // $tours = Tour::all();
-        // return view('book.create', compact('customers','tours'));
     }
 
     /**
@@ -47,15 +45,13 @@ class BookingController extends Controller
         //dd($request);
         $request->validate(
             [
-                'payment' => 'required',
-                
+                'payment' => 'required',             
             ]
         );
         $booking = Booking::create([
             "date" => Carbon::now(),
             "payment" => $request["payment"],
             "customer_id" => $request["customer_id"],
-            "flights_id" => $request["flight_id"],
             "schedule_id" => $request["schedule_id"],
         ]);
         
@@ -110,5 +106,7 @@ class BookingController extends Controller
     {
         //
     }
+
+    
 
 }

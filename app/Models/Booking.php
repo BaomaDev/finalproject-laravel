@@ -11,12 +11,12 @@ class Booking extends Model
     use HasFactory;
 
     protected $fillable = [
-        'date','payment','customer_id','tour_id','schedule_id','flights_id'
+        'date','payment','customer_id','tour_id','schedule_id'
     ];
 
-    public function tour(): BelongsTo
+    public function schedule(): BelongsTo
     {
-        return $this->belongsTo(Tour::class);
+        return $this->belongsTo(Schedule::class);
     }
 
     public function customer(): BelongsTo
