@@ -1,4 +1,17 @@
 @extends('layout.master')
+
+@section('title')
+    <h1>Edit Customer</h1>
+@endsection
+
+@section('breadcrumb')
+    <ol class="breadcrumb float-sm-right">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="http:/customer">Customer</a></li>
+        <li class="breadcrumb-item active">Edit</li>
+    </ol>
+@endsection
+
 @section('content')
 <form action="/customer/{{$customer->id}}" method="POST">
     @csrf
@@ -32,7 +45,7 @@
     </div>
     <div class="mb-3">
         <label for="birthday">Birthday:</label>
-        <input type="date" id="birthday" name="birthday">
+        <input type="date" id="birthday" name="birthday" value="{{$customer->birthday}}">
         @error('birthday')
             <div class="alert alert-danger">
                 {{$message}}

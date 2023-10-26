@@ -1,9 +1,11 @@
 <?php
 
+use App\Http\Controllers\BookingController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\FlightController;
 use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\TourController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,3 +27,8 @@ Route::resource('customer', CustomerController::class);
 Route::resource('flight', FlightController::class);
 Route::resource('tour', TourController::class);
 Route::resource('schedule', ScheduleController::class);
+Route::resource('book', BookingController::class);
+Route::get('/book/manage', [BookingController::class, 'manage']);
+
+Auth::routes();
+

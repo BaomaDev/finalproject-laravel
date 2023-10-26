@@ -23,4 +23,9 @@ class Tour extends Model
     {
         return $this->hasMany(Schedule::class);
     }
+
+    public function booking(): HasMany
+    {
+        return $this->hasMany(booking::class);
+    }
 }

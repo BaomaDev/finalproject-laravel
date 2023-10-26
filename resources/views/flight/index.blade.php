@@ -1,6 +1,17 @@
 @extends('layout.master')
+
+@section('title')
+    <h1>Flights</h1>
+@endsection
+
+@section('breadcrumb')
+    <ol class="breadcrumb float-sm-right">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+    </ol>
+@endsection
+
 @section('content')
-<h1>All The Customer</h1>
+<h1>All The Flights</h1>
 <a href="/flight/create">Create a flight</a>
 <!-- will be used to show any messages -->
 @if (Session::has('message'))

@@ -85,7 +85,6 @@
                 @foreach ($flights as $key => $value )
                 <option value="{{$value->id}} ">{{$value->airline}} </option>
                 @endforeach
-              
             </select>
         </div>
         {{-- <div class="mb-3">

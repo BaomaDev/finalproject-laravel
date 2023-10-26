@@ -1,4 +1,17 @@
 @extends('layout.master')
+
+@section('title')
+    <h1>Edit Flight</h1>
+@endsection
+
+@section('breadcrumb')
+    <ol class="breadcrumb float-sm-right">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="http:/flight">Flights</a></li>
+        <li class="breadcrumb-item active">Edit</li>
+    </ol>
+@endsection
+
 @section('content')
 <form action="/flight/{{$flight->id}}" method="POST">
     @csrf

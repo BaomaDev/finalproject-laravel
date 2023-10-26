@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Customer extends Model
 {
@@ -11,4 +12,9 @@ class Customer extends Model
     protected $fillable = [
         'name','email','phoneNumber','birthday',
     ];
+
+    public function booking(): HasMany
+    {
+        return $this->hasMany(Booking::class);
+    }
 }

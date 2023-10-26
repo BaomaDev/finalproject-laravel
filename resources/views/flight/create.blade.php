@@ -1,5 +1,16 @@
 @extends('layout.master')
 
+@section('title')
+    <h1>Create New Flight</h1>
+@endsection
+
+@section('breadcrumb')
+    <ol class="breadcrumb float-sm-right">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="http:/flight">Flights</a></li>
+        <li class="breadcrumb-item active">Create</li>
+    </ol>
+@endsection
 
 @section('content')
     <form action="/flight" method="POST">
