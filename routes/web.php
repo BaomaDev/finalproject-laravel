@@ -42,5 +42,8 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('schedule', ScheduleController::class);
     Route::resource('book', BookingController::class);
     Route::get('/booking/{id}', [BookingController::class, 'showSchedule']);
+    Route::get('/create-pdf', [BookingController::class, 'createPDF']);
+    Route::get('/managebook', [BookingController::class, 'indexUser']);
 });
+
 

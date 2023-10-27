@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class BookingController extends Controller
 {
@@ -24,6 +25,13 @@ class BookingController extends Controller
     {
         $bookings = Booking::all();
         return view('book.index', compact('bookings'));
+    }
+
+    public function indexUser()
+    {
+        $bookings = Booking::where('user_id', Auth::user()->id)->get();
+        //dd($bookings);
+        return view('managebook', compact('bookings'));
     }
 
     /**
@@ -57,7 +65,8 @@ class BookingController extends Controller
             "schedule_id" => $request["schedule_id"],
         ]);
         
-        return redirect('/');
+        return redirect('create-pdf');
+        
     }
 
     /**
@@ -120,6 +129,14 @@ class BookingController extends Controller
         //
     }
 
+    public function createPDF() 
+    {    
+        $bookings = Booking::where('user_id', Auth::user()->id )->first();
+     
+        $pdf = Pdf::loadView('pdf', ['data' => $bookings]);
+        return $pdf->stream();
+        //return $pdf->download();
+    }
     
 
 }

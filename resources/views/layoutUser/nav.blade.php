@@ -5,7 +5,7 @@
         <ul class="navbar-nav ms-auto pt-2 pt-lg-0 font-base align-items-lg-center align-items-start">
           <li class="nav-item px-3 px-xl-4"><a class="nav-link fw-medium" aria-current="page" href="/">Service</a></li>
           <li class="nav-item px-3 px-xl-4"><a class="nav-link fw-medium" aria-current="page" href="/">Destination</a></li>
-          <li class="nav-item px-3 px-xl-4"><a class="nav-link fw-medium" aria-current="page" href="/">Booking</a></li>
+          <li class="nav-item px-3 px-xl-4"><a class="nav-link fw-medium" aria-current="page" href="/managebook">Booking</a></li>
           <li class="nav-item px-3 px-xl-4"><a class="nav-link fw-medium" aria-current="page" href="/">Testimonial</a></li>
           @guest
           <li class="nav-item px-3 px-xl-4"><a class="nav-link fw-medium" aria-current="page" href="{{ route('login') }}">Login</a></li>
