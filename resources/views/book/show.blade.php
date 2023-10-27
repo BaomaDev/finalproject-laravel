@@ -16,12 +16,14 @@
     <form action="/book" method="POST">
         @csrf
         <div class="form-group">
-            <label for="exampleFormControlSelect1">Customer</label>
-            <select class="form-control" id="customer_id" name="customer_id">
+            <label for="exampleFormControlSelect1">Customer</label><br>
+            <label for="exampleFormControlSelect1" id="customer_id" value="{{$customers->id}}">{{$customers->name}}</label><br>
+            {{-- <select class="form-control" id="customer_id" name="customer_id">
                 @foreach ($customers as $key => $value )
                 <option value="{{$value->id}} ">{{$value->name}} </option>
                 @endforeach
-            </select>
+                
+            </select> --}}
         </div>
         <div class="form-group">
             <label for="exampleFormControlSelect1">Tours</label>

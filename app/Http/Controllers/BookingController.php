@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\Booking;
 use App\Models\Customer;
+use App\Models\User;
 use App\Models\Flight;
 use App\Models\Schedule;
 use App\Models\Tour;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
 
 class BookingController extends Controller
 {
@@ -51,11 +53,11 @@ class BookingController extends Controller
         $booking = Booking::create([
             "date" => Carbon::now(),
             "payment" => $request["payment"],
-            "customer_id" => $request["customer_id"],
+            "user_id" => Auth::user()->id,
             "schedule_id" => $request["schedule_id"],
         ]);
         
-        return redirect('/tour');
+        return redirect('/');
     }
 
     /**
@@ -66,11 +68,22 @@ class BookingController extends Controller
      */
     public function show($tour_id)
     {
-        $customers = Customer::all();
+        //dd(Auth::user());
+        $customers = User::where('id', Auth::user()->id)->first();
         $flights = Flight::all();
         $tours = Tour::where('id',$tour_id)->first();
         $schedules = Schedule::where('tour_id', $tour_id)->get();
         return view('book.show', compact('customers','tours', 'flights','schedules'));
+    }
+
+    public function showSchedule($tour_id)
+    {
+        //dd(Auth::user());
+        $customers = User::where('id', Auth::user()->id)->first();
+        $flights = Flight::all();
+        $tours = Tour::where('id',$tour_id)->first();
+        $schedules = Schedule::where('tour_id', $tour_id)->get();
+        return view('booking', compact('customers','tours', 'flights','schedules'));
     }
 
     /**

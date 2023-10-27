@@ -6,7 +6,7 @@
 @if (Session::has('message'))
     <div class="alert alert-info">{{ Session::get('message') }}</div>
 @endif
-
+{{Auth::user()->name}}
 <div class="container-fluid">
     <div class="row">
         @foreach($tours as $key => $value)

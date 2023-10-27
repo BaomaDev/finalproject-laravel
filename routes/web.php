@@ -22,16 +22,25 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/admin', function () {
+    return view('welcomeadmin');
+});
 
-Route::resource('customer', CustomerController::class);
-Route::resource('flight', FlightController::class);
-Route::resource('tour', TourController::class);
-Route::resource('schedule', ScheduleController::class);
-Route::resource('book', BookingController::class);
-//Route::get('/book/manage', [BookingController::class, 'manage']);
+Route::get('/', [TourController::class, 'indexUser']);
+Route::get('/detailtour/{id}', [TourController::class, 'showTour']);
+
 Route::get('/book/manage', function(){
     
     //return view('customer.create');
 });
 Auth::routes();
+
+Route::middleware(['auth'])->group(function () {
+    Route::resource('customer', CustomerController::class);
+    Route::resource('flight', FlightController::class);
+    Route::resource('tour', TourController::class);
+    Route::resource('schedule', ScheduleController::class);
+    Route::resource('book', BookingController::class);
+    Route::get('/booking/{id}', [BookingController::class, 'showSchedule']);
+});
 

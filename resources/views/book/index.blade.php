@@ -30,7 +30,7 @@
             <td>{{ $value->id }}</td>
             <td>{{ $value->date }}</td>
             <td>{{ $value->payment }}</td>
-            <td>{{ $value->customer->name }}</td>
+            <td>{{ $value->user->name }}</td>
             <td>{{ $value->schedule->tour->name }}</td>
             <td>{{ $value->schedule->tour->flight->airline }}</td>
             <!-- we will also add show, edit, and delete buttons -->

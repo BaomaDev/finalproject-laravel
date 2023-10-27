@@ -19,6 +19,12 @@ class TourController extends Controller
         return view('tour.index', compact('tours'));
     }
 
+    public function indexUser()
+    {
+        $tours = Tour::all();
+        return view('welcome', compact('tours'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -75,6 +81,14 @@ class TourController extends Controller
         $tour = Tour::where('id', $id)->first();
         
         return view('tour.show', compact('tour'));
+        
+    }
+
+    public function showTour($id)
+    {
+        $tour = Tour::where('id', $id)->first();
+        
+        return view('detailtour', compact('tour'));
         
     }
 
