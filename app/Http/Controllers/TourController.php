@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Tour;
 use App\Models\Flight;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 use Exception;
@@ -54,22 +55,28 @@ class TourController extends Controller
             'description' => 'required',
             'price' => 'required',
             'duration' => 'required',
-            'date' => 'required',
             'area' => 'required',
             ]
     );
 
-        $tour = Tour::create([
-            "name" => $request["name"],
-            "description" => $request["description"],
-            "price" => $request["price"],
-            "duration" => $request["duration"],
-            "date" => $request["date"],
-            "area" => $request["area"],
-            "flight_id" => $request["flight_id"],
-        ]);
+        try {
+            $tour = Tour::create([
+                "name" => $request["name"],
+                "description" => $request["description"],
+                "price" => $request["price"],
+                "duration" => $request["duration"],
+                "date" => Carbon::now(),
+                "area" => $request["area"],
+                "flight_id" => $request["flight_id"],
+            ]);
+            Alert::success('Success!', 'Tour Created Successfully');
+        } catch (Exception $e) {
+            return $e->getMessage();
 
-        Alert::success('Success!', 'Tour Created Successfully');
+        }
+        
+
+        //Alert::success('Success!', 'Tour Created Successfully');
         
         return redirect('/tour');
     }

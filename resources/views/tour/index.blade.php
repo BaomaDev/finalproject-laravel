@@ -48,10 +48,10 @@
         @foreach($tours as $key => $value)
         <div class="col">
             <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="..." alt="Card image cap">
+                
                 <div class="card-body">
-                  <h5 class="card-title"><a href="/tour/{{$value->id}}"> {{$value->name}}</a></h5>
-                  <h5>{{$value->price}} </h5>
+                  <h5 class="card-title"><a href="/tour/{{$value->id}}"> {{$value->name}}</a></h5><br>
+                  <h5>Rp. {{number_format($value->price)}} </h5>
                   <p class="card-text text-truncate">{{$value->description}} </p>
                   <a href="/schedule/{{$value->id}}">View Schedule</a>
                   <a href="/book/{{$value->id}}">Book Tour</a>

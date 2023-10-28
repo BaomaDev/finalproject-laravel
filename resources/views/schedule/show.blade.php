@@ -1,6 +1,7 @@
 @extends('layout.master')
 @section('content')
 <h1> {{$tour->name}}</h1><br>
+<a href="/schedule/create">Create a Schedule</a>
 <table class="table table-striped table-bordered">
     <thead>
         <tr>

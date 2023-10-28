@@ -14,9 +14,6 @@
 @endsection
 
 @section('tour')
-
-
-
   <div class="mb-7 text-center">
     <h5 class="text-secondary">Top Selling </h5>
     <h3 class="fs-xl-10 fs-lg-8 fs-7 fw-bold font-cursive text-capitalize">Top Destinations</h3>

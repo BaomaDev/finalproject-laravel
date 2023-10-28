@@ -10,7 +10,6 @@
                 @foreach ($tours as $key => $value )
                 <option value="{{$value->id}} ">{{$value->name}} </option>
                 @endforeach
-              
             </select>
         </div>
         <div class="mb-3">

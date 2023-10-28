@@ -45,6 +45,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/booking/{id}', [BookingController::class, 'showSchedule']);
     Route::get('/create-pdf', [BookingController::class, 'createPDF']);
     Route::get('/managebook', [BookingController::class, 'indexUser']);
+   
 });
 
 Route::get('/users', [UsersController::class, 'index'])->name('users.index');

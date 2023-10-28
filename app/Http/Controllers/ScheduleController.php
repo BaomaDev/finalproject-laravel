@@ -32,6 +32,7 @@ class ScheduleController extends Controller
         return view('schedule.create', compact('tours'));
     }
 
+
     /**
      * Store a newly created resource in storage.
      *

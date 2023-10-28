@@ -51,7 +51,7 @@
                 </div>
             @enderror
         </div>
-        <div class="mb-3">
+        {{-- <div class="mb-3">
             <label for="date">Date :</label>
             <input type="date" id="date" name="date">
             @error('date')
@@ -59,7 +59,7 @@
                     {{$message}}
                 </div>
             @enderror
-        </div>
+        </div> --}}
         {{-- <div class="mb-3">
             <label for="area">Area :</label>
             <input type="area" id="area" name="area" placeholder="Tours Area">
