@@ -31,10 +31,22 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
             <li class="nav-item">
-              <a href="/" class="nav-link">
+              <a href="/tour" class="nav-link">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
                 <p>
                   Dashboard
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="/" class="nav-link">
+                <i class="nav-icon fas fa-tachometer-alt"></i>
+                <p>
+                  @if (Auth::user()->name == 'admin')
+                    {{ Auth::user()->email }}
+                  @else
+                    Tes
+                  @endif
                 </p>
               </a>
             </li>
@@ -47,12 +59,12 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
-              <li class="nav-item">
+              {{-- <li class="nav-item">
                 <a href="/customer" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Customer</p>
                 </a>
-              </li>
+              </li> --}}
               <li class="nav-item">
                 <a href="/flight" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>

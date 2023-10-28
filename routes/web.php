@@ -5,6 +5,7 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\FlightController;
 use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\TourController;
+use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -45,5 +46,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/create-pdf', [BookingController::class, 'createPDF']);
     Route::get('/managebook', [BookingController::class, 'indexUser']);
 });
+
+Route::get('/users', [UsersController::class, 'index'])->name('users.index');
+Route::get('/users/list', [UsersController::class, 'getUsers'])->name('users.list');
 
 

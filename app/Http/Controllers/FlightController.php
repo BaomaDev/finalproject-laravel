@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Flight;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use RealRashid\SweetAlert\Facades\Alert;
+use Exception;
 
 class FlightController extends Controller
 {
@@ -53,7 +55,9 @@ class FlightController extends Controller
             'departure' => $request["departure"],
             'arrival' => $request["arrival"], 
         ]);
-        
+
+        Alert::success('Success!', 'Flight Created Successfully');
+
         return redirect('/flight');
     }
 
@@ -117,8 +121,16 @@ class FlightController extends Controller
      */
     public function destroy($id)
     {
-        $flight = Flight::find($id);
-        $flight->delete();
-        return redirect('/flight');
+        try {
+
+            $flight = Flight::find($id);
+            $flight->delete();
+            return redirect('/flight');
+   
+          } catch (Exception $e) {
+            Alert::error('Error', $e->getMessage());
+            return redirect('/flight');
+          
+          }
     }
 }

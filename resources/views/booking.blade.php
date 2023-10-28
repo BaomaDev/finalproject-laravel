@@ -14,10 +14,6 @@
 @endsection
 
 @section('tour')
-
-<div class="container">
-  <div class="position-absolute start-100 bottom-0 translate-middle-x d-none d-xl-block ms-xl-n4"><img src="assets/img/dest/shape.svg" alt="destination" /></div>
-
   <div class="row">
         {{-- <div class="col">
         <div class="card overflow-hidden shadow"> <img class="card-img-top" src="assets/img/dest/dest1.jpg" alt="Rome, Italty" />
@@ -82,6 +78,5 @@
     
     
   </div>
-</div>
     
 @endsection

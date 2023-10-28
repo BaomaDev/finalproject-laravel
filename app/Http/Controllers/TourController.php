@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Tour;
 use App\Models\Flight;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
+use Exception;
 
 class TourController extends Controller
 {
@@ -66,6 +68,8 @@ class TourController extends Controller
             "area" => $request["area"],
             "flight_id" => $request["flight_id"],
         ]);
+
+        Alert::success('Success!', 'Tour Created Successfully');
         
         return redirect('/tour');
     }
@@ -145,8 +149,16 @@ class TourController extends Controller
      */
     public function destroy($id)
     {
-        $tour = Tour::find($id);
-        $tour->delete();
-        return redirect('/tour');
+        try {
+            //code...
+            $tour = Tour::find($id);
+            $tour->delete();
+            return redirect('/tour');
+        } catch (Exception $e) {
+            //throw $th;
+            Alert::warning('Error', $e->getMessage());
+            return redirect('/tour');
+        }
+        
     }
 }

@@ -49,7 +49,14 @@
       </section>
 
       <section class="pt-5" id="destination">
+        <div class="container">
+          <div class="position-absolute start-100 bottom-0 translate-middle-x d-none d-xl-block ms-xl-n4">
+            <img src="{{asset('/templateUser/assets/img/dest/shape.svg')}}" alt="destination" /></div>
         @yield('tour')
+        
+             
+        </div>
+        
       </section>
 
       <div class="position-relative pt-9 pt-lg-8 pb-6 pb-lg-8">

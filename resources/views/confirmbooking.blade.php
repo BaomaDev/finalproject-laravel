@@ -1,21 +1,21 @@
 @extends('layoutUser.master')
 
 @section('judul')
-{{-- <div class="container">
-  <div class="row align-items-center">
-    <div class="col-md-5 col-lg-6 order-0 order-md-1 text-end"><img class="pt-7 pt-md-0 hero-img" src="{{asset('/templateUser/assets/img/hero/hero-img.png')}}" alt="hero-header" /></div>
-    <div class="col-md-7 col-lg-6 text-md-start text-center py-6">
-      <h4 class="fw-bold text-danger mb-3">Detail Tour</h4>
-      <h1 class="hero-title">Travel, enjoy and live a new and full life</h1>
-      <p class="mb-4 fw-medium">Built Wicket longer admire do barton vanity itself do in it.<br class="d-none d-xl-block" />Preferred to sportsmen it engrossed listening. Park gate<br class="d-none d-xl-block" />sell they west hard for the.</p>
-    </div>
-  </div>
-</div> --}}
+Confirm Booking
 @endsection
 
 @section('tour')
 
-  <div class="row">
+<div class="container">
+  <div class="position-absolute start-100 bottom-0 translate-middle-x d-none d-xl-block ms-xl-n4">
+  <img src="{{asset('/templateUser/assets/img/dest/shape.svg')}}" alt="destination" /></div>
+  {{-- <div class="mb-7 text-center">
+    <h5 class="text-secondary">Top Selling </h5>
+    <h3 class="fs-xl-10 fs-lg-8 fs-7 fw-bold font-cursive text-capitalize">Top Destinations</h3>
+  </div> --}}
+  thanks for booking
+  <a href="/create-pdf" target="_blank">Print Invoice</a>
+  {{-- <div class="row">
         <div class="col">
           <div class="card overflow-hidden shadow"> <img class="card-img-top" src="assets/img/dest/dest1.jpg" alt="Rome, Italty" />
             <div class="card-body py-4 px-3">
@@ -40,7 +40,7 @@
     
     
     
-  </div>
-
+  </div> --}}
+</div>
     
 @endsection

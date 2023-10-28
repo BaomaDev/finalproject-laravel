@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Schedule;
 use App\Models\Tour;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ScheduleController extends Controller
 {
@@ -55,6 +56,8 @@ class ScheduleController extends Controller
                 "tour_id" => $request["tour_id"],
             ]
         );
+
+        Alert::success('Success!', 'Schedule Created Successfully');
 
         return redirect('/schedule');
     }

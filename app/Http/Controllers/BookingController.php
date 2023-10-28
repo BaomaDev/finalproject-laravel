@@ -65,7 +65,8 @@ class BookingController extends Controller
             "schedule_id" => $request["schedule_id"],
         ]);
         
-        return redirect('create-pdf');
+        return view('confirmbooking');
+        //return redirect('create-pdf');
         
     }
 
@@ -132,10 +133,8 @@ class BookingController extends Controller
     public function createPDF() 
     {    
         $bookings = Booking::where('user_id', Auth::user()->id )->first();
-     
         $pdf = Pdf::loadView('pdf', ['data' => $bookings]);
         return $pdf->stream();
-        //return $pdf->download();
     }
     
 
