@@ -1,5 +1,3 @@
-
-
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="/" class="brand-link">
@@ -20,7 +18,7 @@
         </div>
         @endauth
         @guest
-            <h1>belum login</h1>
+            <h2 class="text-white">belum login</h2>
         @endguest
       </div>
 
@@ -39,17 +37,22 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="/" class="nav-link">
-                <i class="nav-icon fas fa-tachometer-alt"></i>
-                <p>
+            <a href="/" class="nav-link">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                @auth
                   @if (Auth::user()->name == 'admin')
                     {{ Auth::user()->email }}
                   @else
                     Tes
                   @endif
-                </p>
-              </a>
-            </li>
+                @endauth
+                @guest
+                  Tes
+                @endguest
+              </p>
+            </a>
+          </li>
             <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
