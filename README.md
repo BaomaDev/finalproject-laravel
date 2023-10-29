@@ -5,11 +5,12 @@ FINAL PROJECT
 Kelompok 4
 
 Anggota Kelompok
-Lunnardy Kartawijaya
-Jesse Robinson Junior Simanjuntak
+- Lunnardy Kartawijaya
+- Jesse Robinson Junior Simanjuntak
 
-Tema Project
-Web Travel Agency
+Tema Project : Web Travel Agency
+
+Link Demo : https://youtu.be/8UIP-EedE9Y
 </p>
 
 ERD
